@@ -1,5 +1,8 @@
 package com.udescmaker.api.taxonomy;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum Dificuldade {
     INICIANTE("iniciante", "Iniciante"),
     INTERMEDIARIO("intermediario", "Intermediário"),
@@ -13,6 +16,7 @@ public enum Dificuldade {
         this.label = label;
     }
 
+    @JsonValue
     public String getId(){
         return id;
     }
@@ -21,7 +25,11 @@ public enum Dificuldade {
         return label;
     }
 
+    @JsonCreator
     public static Dificuldade fromId(String id){
+        if (id == null) {
+            throw new IllegalArgumentException("Dificuldade não pode ser nula");
+        }
         for (Dificuldade dificuldade : values()){
             if (dificuldade.getId().equalsIgnoreCase(id)){
                 return dificuldade;

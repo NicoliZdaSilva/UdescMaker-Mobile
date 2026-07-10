@@ -15,6 +15,7 @@ public record Projeto(
         Dificuldade dificuldade,
         int idadeMinima,
         int duracaoMinutos,
+        String videoYoutube,
         List<CategoriaProjeto> categorias,
         List<String> tags,
         boolean destaque,

@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "UDESC MAKER",
+    "slug": "udescmaker-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "br.udesc.ceavi.udescmaker"
+    },
+    "android": {
+      "package": "br.udesc.ceavi.udescmaker",
+      "adaptiveIcon": {
+        "backgroundColor": "#f8f5eb"
+      }
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "O UDESC MAKER usa suas imagens somente para anexá-las ao projeto selecionado.",
+          "cameraPermission": false,
+          "microphonePermission": false
+        }
+      ],
+      "expo-document-picker",
+      "expo-font",
+      "expo-asset"
+    ]
+  }
+}

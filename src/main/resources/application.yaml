@@ -1,3 +1,30 @@
 spring:
   application:
     name: udescmaker-api
+  servlet:
+    multipart:
+      max-file-size: ${UDESCMAKER_MAX_FILE_SIZE:20MB}
+      max-request-size: ${UDESCMAKER_MAX_REQUEST_SIZE:100MB}
+
+udescmaker:
+  api-public-url: ${UDESCMAKER_API_PUBLIC_URL:http://localhost:8080}
+  site-url: ${UDESCMAKER_SITE_URL:https://samuelgislon.github.io/udescmaker}
+  catalog:
+    mode: ${UDESCMAKER_CATALOG_MODE:local}
+    local-path: ${UDESCMAKER_CATALOG_LOCAL_PATH:../udescmaker/src/content/projects}
+    cache-ttl: ${UDESCMAKER_CATALOG_CACHE_TTL:PT5M}
+  github:
+    owner: ${UDESCMAKER_GITHUB_OWNER:SamuelGislon}
+    repository: ${UDESCMAKER_GITHUB_REPOSITORY:udescmaker}
+    branch: ${UDESCMAKER_GITHUB_BRANCH:main}
+    projects-path: ${UDESCMAKER_GITHUB_PROJECTS_PATH:src/content/projects}
+    token: ${UDESCMAKER_GITHUB_TOKEN:}
+    publish-enabled: ${UDESCMAKER_GITHUB_PUBLISH_ENABLED:false}
+    api-url: ${UDESCMAKER_GITHUB_API_URL:https://api.github.com}
+    raw-url: ${UDESCMAKER_GITHUB_RAW_URL:https://raw.githubusercontent.com}
+  uploads:
+    max-file-bytes: ${UDESCMAKER_UPLOAD_MAX_FILE_BYTES:20971520}
+    max-total-bytes: ${UDESCMAKER_UPLOAD_MAX_TOTAL_BYTES:104857600}
+  cors:
+    allowed-origins: ${UDESCMAKER_CORS_ALLOWED_ORIGINS:http://localhost:8081,http://localhost:19006}
+    allow-credentials: ${UDESCMAKER_CORS_ALLOW_CREDENTIALS:false}

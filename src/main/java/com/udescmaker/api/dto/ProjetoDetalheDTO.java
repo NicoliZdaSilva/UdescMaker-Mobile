@@ -20,6 +20,7 @@ public record ProjetoDetalheDTO(
         Dificuldade dificuldade,
         int idadeMinima,
         int duracaoMinutos,
+        String videoYoutube,
         List<CategoriaProjeto> categorias,
         List<String> tags,
         boolean destaque,
@@ -31,7 +32,7 @@ public record ProjetoDetalheDTO(
         List<DicaProjeto> dicas,
         List<ArquivoRef> baixaveis,
         List<ArquivoRef> arquivos,
-        List<String> relacionados,
+        List<ProjetoResumoDTO> relacionados,
         String corpoMarkdown
 ) {
 }

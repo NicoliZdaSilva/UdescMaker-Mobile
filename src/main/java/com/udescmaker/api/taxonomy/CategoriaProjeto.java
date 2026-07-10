@@ -1,5 +1,8 @@
 package com.udescmaker.api.taxonomy;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum CategoriaProjeto {
     ARDUINO("arduino", "Arduino"),
     AUTOMACAO("automacao", "Automação"),
@@ -23,6 +26,7 @@ public enum CategoriaProjeto {
         this.label = label;
     }
 
+    @JsonValue
     public String getId(){
         return id;
     }
@@ -30,7 +34,11 @@ public enum CategoriaProjeto {
     public String getLabel(){
         return label;
     }
+    @JsonCreator
     public static CategoriaProjeto fromId(String id){
+        if (id == null) {
+            throw new IllegalArgumentException("Categoria não pode ser nula");
+        }
         for (CategoriaProjeto categoria : values()){
             if (categoria.getId().equalsIgnoreCase(id)){
                 return categoria;

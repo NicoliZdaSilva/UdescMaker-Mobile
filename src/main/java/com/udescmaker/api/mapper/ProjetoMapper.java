@@ -15,13 +15,21 @@ public class ProjetoMapper {
                     projeto.titulo(),
                     projeto.resumo(),
                     projeto.publicadoEm(),
+                    projeto.autor(),
                     projeto.dificuldade(),
+                    projeto.idadeMinima(),
+                    projeto.duracaoMinutos(),
                     projeto.capa(),
                     projeto.categorias(),
+                    projeto.tags(),
                     projeto.destaque()
             );
        }
     public ProjetoDetalheDTO toDetalhe(Projeto projeto) {
+        return toDetalhe(projeto, java.util.List.of());
+    }
+
+    public ProjetoDetalheDTO toDetalhe(Projeto projeto, java.util.List<Projeto> relacionados) {
         return new ProjetoDetalheDTO(
                 projeto.slug(),
                 projeto.titulo(),
@@ -31,6 +39,7 @@ public class ProjetoMapper {
                 projeto.dificuldade(),
                 projeto.idadeMinima(),
                 projeto.duracaoMinutos(),
+                projeto.videoYoutube(),
                 projeto.categorias(),
                 projeto.tags(),
                 projeto.destaque(),
@@ -42,7 +51,7 @@ public class ProjetoMapper {
                 projeto.dicas(),
                 projeto.baixaveis(),
                 projeto.arquivos(),
-                projeto.relacionados(),
+                relacionados.stream().map(this::toResumo).toList(),
                 projeto.corpoMarkdown()
         );
     }

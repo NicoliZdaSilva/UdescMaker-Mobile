@@ -1,0 +1,6 @@
+udescmaker:
+  catalog:
+    mode: test
+  github:
+    publish-enabled: false
+    token: ""

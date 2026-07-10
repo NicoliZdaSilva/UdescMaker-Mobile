@@ -6,6 +6,8 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Repository;
+import org.springframework.context.annotation.Profile;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -13,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
+@Profile("test")
+@ConditionalOnProperty(name = "udescmaker.catalog.mode", havingValue = "test")
 public class MockProjetoRepository implements ProjetoRepository {
 
     private final List<Projeto> projetos;
