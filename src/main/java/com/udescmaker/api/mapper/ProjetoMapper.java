@@ -14,8 +14,10 @@ public class ProjetoMapper {
                     projeto.slug(),
                     projeto.titulo(),
                     projeto.resumo(),
+                    projeto.publicadoEm(),
                     projeto.dificuldade(),
                     projeto.capa(),
+                    projeto.categorias(),
                     projeto.destaque()
             );
        }
